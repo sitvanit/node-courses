@@ -1,0 +1,101 @@
+/*** package.json ***/
+
+There are no fixed requirements of what should be in a package.json file, for an application. The only requirement is that it respects the JSON format, otherwise it cannot be read by programs that try to access its properties programmatically.
+Unless you’re building a Node.js package that you want to distribute over npm.
+
+{
+  "name": "test-project",
+  "version": "1.0.0",
+  "description": "A Vue.js project",
+  "main": "src/main.js",
+  "private": true,
+  "scripts": {
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js"
+  },
+  "dependencies": {
+    "vue": "^2.5.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.2",
+  },
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}
+
+there are lots of things going on here:
+
+/** Package versions **/
+~ only update patch releases
+^ update patch and minor releases
+* accept all updates, including major version upgrades
+no symbol: you accept only that specific version you specify
+latest: you want to use the latest version available
+
+and you can combine most of the above in ranges, like this: 1.0.0 || >=1.1.0 <1.2.0,
+to either use 1.0.0 or one release from 1.1.0 up, but lower than 1.2.0.
+
+ /** name **/
+must not have spaces, it can only contain lowercase letters, hyphens (-) or underscores (_).
+This is because when a package is published on npm, it gets its own URL based on this property.
+
+/** author **/
+
+/** contributors **/
+
+/** bugs **/
+Links to the package issue tracker, most likely a GitHub issues page.
+
+/** homepage **/
+
+/** version **/
+
+/** licence **/
+
+/** keywords **/
+This helps people find your package when navigating similar packages, or when browsing the npm website.
+
+/** description **/
+This is especially useful if you decide to publish your package to npm so that people can find out what the package is about.
+
+/** repository **/
+This property specifies where this package repository is locate.
+"repository": "gitlab:flaviocopes/testing"
+or
+You can explicitly set the version control system:
+"repository": {
+  "type": "git",
+  "url": "https://github.com/flaviocopes/testing.git"
+}
+
+/** main **/
+main set the entry point for the application.
+
+/** private **/
+private if set to true prevents the app/package to be accidentally published on npm.
+
+/** scripts **/
+you can call the scripts by running:
+npm run dev or npm dev
+
+/** dependencies **/
+
+/** devDependencies **/
+They differ from dependencies because they are meant to be installed only on a development machine, not needed to run
+the code in production.
+npm install --dev <PACKAGENAME>
+yarn add --dev <PACKAGENAME>
+
+/** engines **/
+engines sets which versions of Node this package/app works on.
+
+/** browserslist **/
+browserslist is used to tell which browsers (and their versions) you want to support.
+This configuration means you want to support the last 2 major versions of all browsers with at least 1% of usage
+(from the CanIUse.com stats), except IE8 and lower (see more on browserslist).

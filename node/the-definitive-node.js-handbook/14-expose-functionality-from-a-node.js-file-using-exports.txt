@@ -1,0 +1,4 @@
+/*** Expose functionality from a Node.js file using exports ***/
+
+What’s the difference between module.exports and exports?
+The first exposes the object it points to. The latter exposes the properties of the object it points to.

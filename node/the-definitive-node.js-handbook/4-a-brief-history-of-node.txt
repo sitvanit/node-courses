@@ -1,0 +1,13 @@
+/** a brief history of node.js **/
+Node.js is just 9 years old (since 2009).
+In comparison, JavaScript is 23 years old and the web as we know it is 25 years old.
+
+JavaScript is a programming language that was created at Netscape as a scripting tool to manipulate web pages inside
+their browser, Netscape Navigator.
+Part of the business model of Netscape was to sell Web Servers, which included an environment called
+“Netscape LiveWire”, which could create dynamic pages using server-side JavaScript. So the idea of server-side
+JavaScript was not introduced by Node.js, it’s old just like JavaScript — but at the time it was not successful.
+The JavaScript engines performance bar raised considerably thanks to the browser competition battle, which is still
+going strong. Development teams behind each major browser work hard every day to give us better performance, which is
+a huge win for JavaScript as a platform. Chrome V8, the engine that Node.js uses under the hood, is one of those and
+in particular it’s the Chrome JavaScript engine.

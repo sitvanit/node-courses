@@ -1,0 +1,30 @@
+/** How to use the Node.js REPL **/
+
+REPL stands for Read-Evaluate-Print-Loop.
+
+in order to run a file:
+node script.js
+
+/** autocomplete **/
+If we omit the filename, we use it in REPL mode:
+node
+and than you can write your code:
+>
+use tab for autocomplete.
+
+Exploring JavaScript objects
+Try entering the name of a JavaScript class, like Number, add a dot and press tab.
+You can inspect the globals you have access to by typing global. and pressing tab.
+
+/** _ **/
+If after some code you type _, that is going to print the result of the last operation.
+
+/** Dot commands **/
+.help: shows the dot commands help
+.editor: enables editor more, to write multiline JavaScript code with ease. Once you are in this mode, enter ctrl-D to run the code you wrote.
+.break: when inputting a multi-line expression, entering the .break command will abort further input. Same as pressing ctrl-C.
+.clear: resets the REPL context to an empty object and clears any multi-line expression currently being input.
+.load: loads a JavaScript file, relative to the current working directory
+.save: saves all you entered in the REPL session to a file (specify the filename)
+.exit: exists the repl (same as pressing ctrl-C two times)
+
