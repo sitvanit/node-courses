@@ -1,0 +1,32 @@
+/** The Node.js Event Emitter **/
+
+/* initialize */
+
+const eventEmitter = require('events').EventEmitter()
+
+This object exposes, among many others, the on and emit methods.
+emit is used to trigger an event
+on is used to add a callback function that’s going to be executed when the event is triggered.
+
+for example:
+
+eventEmitter.on('start', () => {
+  console.log('started')
+})
+
+eventEmitter.emit('start')
+
+and with multiple arguments:
+
+eventEmitter.on('start', (start, end) => {
+  console.log(`started from ${start} to ${end}`)
+})
+
+eventEmitter.emit('start', 1, 100)
+
+
+/* more methods */
+
+once(): add a one-time listener
+removeListener() / off(): remove an event listener from an event
+removeAllListeners(): remove all listeners for an event

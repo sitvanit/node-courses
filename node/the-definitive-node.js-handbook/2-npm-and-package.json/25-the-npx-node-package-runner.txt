@@ -1,0 +1,27 @@
+/** The npx Node Package Runner **/
+
+npx is a very cool way to run the Node.js codes, and provides many useful features.
+
+If you don’t want to install npm, you can install npx as a standalone package.
+npx lets you run code built with Node.js and published through the npm registry.
+
+This is pretty useful, mostly because:
+you don’t need to install anything
+you can run different versions of the same command, using the syntax @version
+
+npx cowsay "Hello"
+npx vue create my-vue-app
+npx create-react-app my-react-app
+
+
+un some code using a different Node.js version
+npx node@6 -v #v6.14.3
+npx node@8 -v #v8.11.3
+
+This helps to avoid tools like nvm or the other Node version management tools.
+
+
+Run arbitrary code snippets directly from a URL
+npx does not limit you to the packages published on the npm registry.
+
+npx https://gist.github.com/zkat/4bc19503fe9e9309e2bfaa2c58074d32

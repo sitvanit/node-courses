@@ -1,0 +1,22 @@
+/** npm global or local packages **/
+
+npm install <package-name>
+npm install -g <package-name>
+
+A package should be installed globally when it provides an executable command that you run from the shell (CLI), and
+it’s reused across projects.
+
+Great examples of popular global packages which you might know are:
+npm
+create-react-app
+vue-cli
+grunt-cli
+mocha
+react-native-cli
+gatsby-cli
+forever
+nodemon
+
+
+You probably have some packages installed globally already on your system. You can see them by running:
+npm list -g --depth 0
