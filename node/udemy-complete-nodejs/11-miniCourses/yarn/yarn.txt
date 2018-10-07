@@ -1,0 +1,113 @@
+/*** Yarn ***/
+
+Yarn is an alternative to npm. It's faster, more secure, and easier to use. You don't need to change a line of code to
+switch.
+Yarn is a new package manager released by Facebook. It aims to replace your existing workflow will maintaining 100%
+compatibility with the npm registry.
+
+Here’s why you should switch:
+
+Yarn is faster and caches modules to speed up future installs.
+The Yarn commands are intuitive.
+Yarn is built around security and reliability.
+
+
+/** Init a yarn project **/
+
+yarn init --yes
+(npm init --yes)
+it will create the package.json with default values
+
+
+/** Install a package **/
+
+yarn add <package_name>
+(npm install <package_name>)
+it will add yarn.lock file with the dependency (instead of package-lock.json).
+in the package.json we have the range of versions (^3.2.1) in the yarn.lock we have the exact version (3.4.5).
+
+yarn add <package_name> --dev
+(npm install <package_name> --dev)
+
+
+/** Uninstall a package **/
+
+yarn remove <package_name>
+(npm uninstall <package_name>)
+
+yarn global remove <package_name>
+(npm uninstall -g <package_name>)
+
+
+/** Update (upgrade/downgrade) a package version **/
+
+yarn upgrade <package_name>@3.0.0
+(mpm update <package_name>@3.0.0)
+package.json and yarn.lock will be with 3.0.0 version
+
+to upgrade to the latest:
+yarn upgrade <package_name>
+(mpm update <package_name>)
+
+yarn global upgrade <package_name>
+(mpm update -g <package_name>)
+
+
+/** Check if the current packages version is updated **/
+
+yarn outdated
+(npm outdated)
+
+
+/** Install node modules **/
+
+yarn install
+(npm install)
+
+yarn global add <package_name>
+(npm install -g <package-name>)
+
+
+/** Clean yarn cache **/
+
+yarn cache clean
+
+
+/** Scripts in package.json **/
+
+yarn run
+will list out all of the scripts we can run.
+
+or a specific script:
+yarn run start
+
+
+/** Change from npm to yarn **/
+
+benchmark:
+1. time npm install (check how much time it takes to install the modules with npm) (took 50 sec)
+2. yarn cache clean (before the install we'll clean the cache)
+3. delete node_modules
+4. yarn install (took 36 sec)
+5. delete node_modules
+6. yarn install (in the second time with the cache it took 18 sec)
+
+just add yarn:
+1. delete node_modules
+2. delete package-lock.json
+3. yarn install
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
