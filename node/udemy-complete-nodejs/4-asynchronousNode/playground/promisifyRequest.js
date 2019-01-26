@@ -20,7 +20,7 @@ const geocodeAddress = address => {
                 });
             }
             else {
-                reject(`An unknown error has been occured`, error, body);
+                reject(`An unknown error has been occurred`, error, body);
             }
         });
     })
