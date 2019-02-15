@@ -6,7 +6,7 @@ const readableStream = new Readable();
 
 readableStream.push('streams data 1');
 readableStream.push('streams data 2\n\n');
-// readableStream.push(null); // push null in order to say, that we've done with pushing the data.
+readableStream.push(null); // push null in order to say, that we've done with pushing the data.
 
 // someone should consume the data
 readableStream.pipe(process.stdout);

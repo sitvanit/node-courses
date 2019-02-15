@@ -1,6 +1,6 @@
 const facebookFeed = require('./1readableStream');
 
-const feed = facebookFeed();
+const feed = facebookFeed(); // feed is a readable stream
 
 // stream is going to emit to events - readable and end - lets listen to them
 
