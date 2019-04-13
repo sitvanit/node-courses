@@ -1,0 +1,25 @@
+/** HTTP **/
+
+HyperText Transfer Protocol
+
+Servers and web browsers communicate with HTTP protocol.
+
+HTTP requests begin with a verb, like:
+
+GET  - fetch a document
+POST - submit a form
+HEAD - fetch metadata about a document
+PUT  - upload a file
+...
+
+
+Headers have a key followed by a colon followed by a value.
+
+key: value
+
+
+example for a request with netcat:
+nc www.google.com 80
+GET / HTTP/1.0
+Host: www.google.com // the headers part
+// hit return twice

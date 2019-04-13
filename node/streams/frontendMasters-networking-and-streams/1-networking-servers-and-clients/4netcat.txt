@@ -1,0 +1,14 @@
+/** netcat **/
+
+netcat can create TCP and UDP connections and servers.
+
+create a server that listen for incoming connections on port 400:
+nc -l 4000
+
+connect to that server from another terminal:
+nc localhost 4000
+
+now you can chat between client and server
+
+This is more or less how protocols or servers and clients talk.
+with netcat the number of client is limited to 1.

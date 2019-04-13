@@ -1,0 +1,34 @@
+/** protocols **/
+
+The language that computer programs speak to each other
+
+HTTP       - browse web pages
+HTTPS      - browse web pages with encryption
+SMTP       - send and receive emails
+IMAP, POP3 - load emails from an inbox
+IRC        - chat (old)
+FTP        - file transfer (not uses much anymore)
+SSH        - remote shell over an encrypted connection
+SSL        - low-level secure data transfer (used by HTTPS)
+
+
+/** ports **/
+
+Each computer can have many services.
+A port is a number between 1 and 65535 that differentiates among the services on a system.
+
+Customary ports
+Any service can listen on any port, but there are customary ports for many protocols:
+
+21   FTP
+22   SSH
+25   SMTP
+80   HTTP
+443  HTTPS
+3306 MYSQL
+5432 POSTGRESQL
+5984 COUCHDB
+6667 IRC
+
+By default, systems can only listen to ports below 1024 as the root user (sudo)
+

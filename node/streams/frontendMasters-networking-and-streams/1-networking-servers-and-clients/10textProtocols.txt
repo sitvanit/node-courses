@@ -1,0 +1,11 @@
+/** Text Protocol */
+
+* HTTP
+* SMTP
+* IRC
+
+These are nice protocols to implement because you can inspect the data going over the wire visually and type requests
+using the keyword.
+They are really to inspect.
+
+

@@ -1,0 +1,13 @@
+/** HTTP POST **/
+
+In post we should send a header with Content-Type
+
+In order to send a post request with nc:
+
+nc localhost 5000
+POST /form {
+    host: 'localhost',
+    'content-length': '51',
+    'content-type: 'application/x-www-form-url-encoded'
+}
+{ title: 'whatever', date: '1421044443', body: 'beep boop\n' }

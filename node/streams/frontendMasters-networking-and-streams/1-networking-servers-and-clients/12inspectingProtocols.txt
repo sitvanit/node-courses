@@ -1,0 +1,9 @@
+/** Inspecting Protocols **/
+
+To inspect protocols you can capture everything coming out of and into you wireless using:
+wireshark for a graphical tool
+tcpdump for a command line tool
+
+port 80 is http unecrypted
+
+

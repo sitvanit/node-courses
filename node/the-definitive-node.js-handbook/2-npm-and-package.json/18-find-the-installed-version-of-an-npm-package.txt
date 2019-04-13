@@ -1,6 +1,0 @@
-/*** Find the installed version of an npm package ***/
-
-npm list
-npm list --depth=0
-npm list <package>
-npm view <package> version

@@ -1,0 +1,12 @@
+/** Networking and Packets **/
+
+TCP - reliable transport:
+if a packet is not acknowledged (ACK) on the other end, it gets resent.
+
+UDP - unreliable transport:
+packets are sent but there is no confirmation that the packet was received at the other end.
+
+we will use UDP in streaming audio/video/games, where you don't want to resend things that didn't get right.
+It's more common to use TCP for everything audio/videos/games as well.
+
+

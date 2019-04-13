@@ -1,0 +1,10 @@
+/** IRC - Internet Relay Chat **/
+
+IRC is an ancient text-based chat protocol that is still very popular among programmers.
+
+connect to IRC
+
+nick sitvanit (user name you'll see in itc)
+user sitvanit sitvanit irc.freenode.net : sitvanit
+join #cyberwizard
+privmsg #cyberwizard :hack the world!

@@ -1,0 +1,25 @@
+/** Servers **/
+
+Sometimes when people say 'server' they mean a computer program that listens to incoming connections.
+Other times, they mean a computer that is configured to run server programs.
+
+Any computer can be a server.
+
+
+/** Clients **/
+
+Clients are computer programs that connect to servers.
+Initiate a connection.
+
+Any computer can be a client.
+
+
+/** Peer to Peer **/
+
+Aside from servers and clients, there is a third role in computer network: peer.
+In a peer to peer network, clients establish connections directly to other clients.
+Nodes in the network are symmetric with fixed central servers.
+everything is both the client and both the server at the same time.
+peers also listening for connections and also initiate connections.
+Examples of peer to peer protocols: bittorrent, webrtc (peer to peer from web browsers like audio chats).
+

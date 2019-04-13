@@ -1,0 +1,4 @@
+/** SMTP - Simple Mail Transfer Protocol **/
+
+SMTP is the protocol used to deliver email messages.
+SMTP has no validation.

@@ -1,0 +1,6 @@
+/** Binary Protocols **/
+
+In binary protocols, you can't just type messages with the keyboard like in text protocols.
+you've got to write programs that unpack the incoming bytes and pack outgoing bytes according to the specification.
+
+* SSH - Secure SHell - cryptographic network protocol for operating network services securely over an unsecured network.

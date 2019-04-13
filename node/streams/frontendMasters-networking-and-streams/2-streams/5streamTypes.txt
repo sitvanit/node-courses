@@ -1,0 +1,21 @@
+/** Stream Types **/
+
+1. readable - produces data: you can pipe FROM it.
+readable.pipe(A)
+paused mode - default behavior with automatic backpressure (pipe).
+flowing mode - data is consumed as soon as chunks are available. turn on flowing mode with: stream.resume().
+
+2. writable - consumes data: you can pipe TO it.
+A.pipe(writable)
+
+3. transform - consumes data, producing transformed data (concat-stream). readable and writable.
+A.pipe(transform).pipe(B)
+
+
+4. duplex - consumes data separately from producing data.
+A.pipe(duplex).pipe(A)
+like a telephone.
+input is decoupled from output but they can work together.
+both sides can be talking on the same time.
+
+

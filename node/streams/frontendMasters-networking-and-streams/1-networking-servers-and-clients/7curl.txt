@@ -1,0 +1,27 @@
+/** curl **/
+
+easy way of sending http requests.
+
+get the body:
+curl -s http://www.google.com
+The -s gets rid of progress output.
+
+get the headers:
+curl -I -s http://www.google.com
+(or)
+curl -sI http://www.google.com
+
+send a http verb:
+curl -X POST http://localhost:5000 -d title=whatever -d data=1421044443 -d body='beep boop!'
+
+set headers:
+add to the curl -
+-H cool:beans
+
+
+
+
+
+
+
+
