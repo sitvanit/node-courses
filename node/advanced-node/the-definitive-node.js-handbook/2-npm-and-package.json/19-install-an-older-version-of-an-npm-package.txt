@@ -1,0 +1,8 @@
+/* Install an older version of an npm package */
+npm install <package>@<version>
+
+/* global install */
+npm install <package>@<version>
+
+/* listing all the previous version of a package */
+npm view <package> versions

@@ -1,0 +1,25 @@
+/* Update all the Node dependencies to their latest version */
+When you install a package using npm install <packagename>, the latest available version of the package is downloaded
+and put in the node_modules folder.
+now in the package.json:
+"<package>": "^x.x.x"
+
+If there is a new minor or patch release and we type npm update, the installed version is updated, and the
+package-lock.json file diligently filled with the new version.
+package.json remains unchanged.
+
+/* To discover new releases of the packages */
+npm outdated
+
+/* To update to a new major version all the packages */
+install the npm-check-updates package globally:
+npm install -g npm-check-updates
+
+then run it:
+ncu -u
+
+This will upgrade all the version hints in the package.json file, to dependencies and devDependencies, so npm can
+install the new major version.
+
+You are now ready to run the update:
+npm update

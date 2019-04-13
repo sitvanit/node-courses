@@ -1,0 +1,3 @@
+/** How to read environment variables from Node.js **/
+NODE_ENV environment variable is set to development by default.
+process.env.NODE_ENV

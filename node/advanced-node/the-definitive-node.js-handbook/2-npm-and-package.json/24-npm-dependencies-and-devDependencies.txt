@@ -1,0 +1,9 @@
+/** npm dependencies and devDependencies **/
+
+The package is automatically listed in the package.json file, under the dependencies list.
+When you add the -D flag, or --save-dev, you are installing it as a development dependency, which adds it to the
+devDependencies list.
+
+Development dependencies are intended as development-only packages, that are unneeded in production.
+
+You need to set the --production flag (npm install --production) to avoid installing those development dependencies.
