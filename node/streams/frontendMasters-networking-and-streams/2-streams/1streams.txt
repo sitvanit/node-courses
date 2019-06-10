@@ -6,6 +6,6 @@ just like how in unix we can pipe command together:
 history | grep git
 
 with streams, we can operate on data chunk by chunk, without buffering everything into memory.
-This means we can write programs that operate on very large filed.
+This means we can write programs that operate on very large files.
 It also means we can have hundreds or thousand of concurrent streams without using much memory.
 
