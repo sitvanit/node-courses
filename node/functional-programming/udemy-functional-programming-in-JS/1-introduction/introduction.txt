@@ -1,0 +1,10 @@
+/** functional programming **/
+
+1. Avoid side effects
+2. Avoid mutations
+3. Avoid shared state
+4. Use pure functions
+5. Use functions composition
+6. Use declarative code instead of imperative code
+
+
