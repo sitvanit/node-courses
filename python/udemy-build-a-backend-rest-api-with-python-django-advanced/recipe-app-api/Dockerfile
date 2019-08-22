@@ -8,7 +8,7 @@ MAINTAINER Sitvanit
 ENV PYTHONUNBUFFERED 1
 
 # copy a file from our project to docker project
-COPY ./requirements.txt /requirements.txt
+COPY requirements.txt /requirements.txt
 # install the requirements into the docker image
 RUN pip install -r /requirements.txt
 
