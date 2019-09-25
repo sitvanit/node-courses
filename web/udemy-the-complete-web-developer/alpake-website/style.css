@@ -1,0 +1,75 @@
+/* css-tricks.com almanac*/
+/* paletton.com */
+/* unsplash.com */
+/* fonts.google.com */
+/* specifity.keegan.st - calculator */
+/* specifity, importance, order */
+/* box model content->padding->border->margin-> */
+
+* {
+	text-align: right;
+}
+
+body {
+	background-image: url(background-image.jpeg);
+	background-size: cover;
+}
+
+h2, p:hover {
+	color: #FFC25C;
+	text-align: center;
+	border: 5px dashed rgba(255, 163, 10, 0.5);
+	cursor: pointer;
+}
+
+p {
+	text-decoration: line-through;
+	text-transform: uppercase;
+	line-height: 20px;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 120%;
+	font-family: "Poiret One", cursive ;
+}
+
+p {
+	color: white;
+}
+
+img {
+	float: left;
+}
+
+li {
+	list-style: none;
+	display: inline-block;
+}
+
+footer {
+	color: red;
+	font-weight: bold;
+	font-size: 200%;
+	text-align: center;
+}
+
+span {
+	font-size: 5em;
+}
+
+.webtext:last-child {
+	border: 5px dashed green;
+}
+
+.boxmodel {
+	border: 5px solid red;
+	display: inline-block;
+	padding: 5px 20px 5px 20px;
+	margin: 20px;
+	width: 33px;
+	height: 55px;
+	color: pink;
+}
+
+#div1 {
+	background: rgba(0, 0, 255, 0.2);
+}

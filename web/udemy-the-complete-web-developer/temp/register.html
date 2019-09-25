@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register</title>
+</head>
+<body>
+	<form method="GET" action="action.php">
+		First Name: <input type="text" name="firstname"><br>
+		Last Name: <input type="text" name="lastname"><br>
+		Email: <input type="email" name="email" required><br>
+		Password: <input type="Password" name="password" minlength="5"><br>
+		Birthday: <input type="date" name="birthday"><br>
+		Gender:<br> 
+			<input type="radio" name="gender" value="Male">Male<br>
+			<input type="radio" name="gender" value="Feale">Female<br>
+			<input type="radio" name="gender" value="Other">Other<br>
+		Pets:<br>
+			<input type="checkbox" name="cat">Cats<br>
+			<input type="checkbox" name="dog">Dogs<br>
+		Cars:<br>
+			<select>
+				<option value="volvo" name="volvo">Volvo</option><br>
+				<option value="Audi" name="audi">Audi</option><br>
+			</select><br>
+		<input type="submit" value="Register!">
+		<input type="reset">
+	</form>
+</body>
+</html>
+
+<!-- The name attribute is going to be in parameters (query strings) of the url after submit - those names are going to the server, the fields of the backend-->
+<!-- we can add method to the form, if we'll do, in POST the parameters will be sent in the body of the request, and in GET in the URL as query params-->
+<!-- action - when you submit that form, after it, run the script of action.php -->
+<!-- cmd + / -->
+<!-- div allows us to add styles to blocks -->
+<!-- span is the same thing but it's inline -->
