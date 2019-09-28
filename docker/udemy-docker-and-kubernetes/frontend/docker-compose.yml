@@ -1,0 +1,24 @@
+version: '3'
+services:
+  web:
+    build:
+      # where we want all of the files and folder for the container will be pulled from
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      # make a volume for the node_modules and not map it to the local project because there is not
+      - /app/node_modules
+      # map a reference between all of the files in the local machine to the /app dir in the container
+      - .:/app
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - .:/app
+    command: ["npm", "run", "test"]
+
+# docker-compose up

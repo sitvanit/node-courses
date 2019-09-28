@@ -1,0 +1,35 @@
+# anytime we're using docker we have to use sudo
+sudo: required
+services:
+  # travis ci is going to automatically install a copy of docker into our container
+  - docker
+
+before_install:
+  - docker build -t sitvanit/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true sitvanit/docker-react npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  # from the url of the app
+  region: "us-west-2"
+  app: "docker-react"
+  env: "DockerReact-env"
+  # when travis decides to deploy the code base it's taking all of the files inside github repo and zip them to single file and copy it over s3 bucket which is a hard drive running on aws, once the copy over, travis poke elastic beanstalk and say that it just load a new zip file and the beanstalk should redeploy the app
+  # we'll find it in s2 according to the region
+  bucket_name: "elasticbeanstalk-us-west-2-512682214073"
+  # should be by default the app name
+  bucket_path: "docker-react"
+  # deploy just after push to master
+  on:
+    branch: master
+  # api keys give to travis access to AWS - we should generate it with service IAM
+  # IAM (Identity and Access management) => users => Add user => user name: docker-react-travis-ci => add programmatic user => attach existing policies directly => search for beanstalk => choose provide full access => create user
+  # we don't want to put our Access key ID and Secret access key here, because all of the github users will see it.
+  # we should go to travis settings => environment variables (they are encrypted and stored by travis) no display.
+  access_key_id:
+    secure: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
+

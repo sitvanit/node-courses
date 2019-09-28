@@ -1,0 +1,38 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t sitvanit/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true sitvanit/react-test npm run test -- --coverage
+
+after_success:
+  - docker build -t sitvanit/multi-client ./client
+  - docker build -t sitvanit/multi-nginx ./nginx
+  - docker build -t sitvanit/multi-server ./server
+  - docker build -t sitvanit/multi-worker ./worker
+  # Log in to docker CLO
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Take those images and push them to Dockerhub
+  - docker push sitvanit/multi-client
+  - docker push sitvanit/multi-nginx
+  - docker push sitvanit/multi-server
+  - docker push sitvanit/multi-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: us-west-2
+  app: multi-docker
+  env: MultiDocker-env
+  bucket_name: elasticbeanstalk-us-west-2-512682214073
+  bucket_path: docker-multi
+  on:
+    branch: master
+  access_key_id:
+    secure: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
+
+
