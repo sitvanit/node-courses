@@ -1,0 +1,17 @@
+# The version of the docker compose
+version: '3'
+# by defining all of the services here together, docker-compose is automatically create the containers in the same network.
+services:
+  redis-server:
+    image: 'redis'
+  node-app:
+    restart: always
+    # . search in the current directory a Dockerfile
+    build: .
+    ports:
+      # - in a yaml file means an element of an array
+      # "<local machine port>:<container port>"
+      - "4001:8081"
+
+# docker-compose up
+# docker-compose up --build
