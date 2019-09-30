@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  # name of the object
+  name: client-deployment
+spec:
+  # the number of different Pods that each deployment must to create
+  replicas: 1
+  # when Deployment create a Pod it asks the master to create it. the muster creates the Pods, but the Deployment must
+  # have handlers for it, for that we have the selector.
+  selector:
+    matchLabels:
+      component: web
+  # the configuration for each Pods (The Pods must be identical) in this deployment
+  template:
+    metadata:
+      labels:
+        component: web
+    spec:
+      containers:
+        - name: client
+          image: sitvanit/multi-client
+          ports:
+            - containerPort: 3000
+
+

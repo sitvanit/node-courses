@@ -1,0 +1,26 @@
+# Pod is the smallest deployable object in the Kubernetes object model.
+# A Pod represents processes running on your Cluster.
+# A Pod encapsulates an application’s container (or, in some cases, multiple containers), storage resources, a unique
+# network IP, and options that govern how the container(s) should run. A Pod represents a unit of deployment: a single
+# instance of an application in Kubernetes, which might consist of either a single container or a small number of
+# containers that are tightly coupled and that share resources.
+
+# Each API version defines a different set of 'objects' we can use
+apiVersion: v1
+# kind represents the kind of object that we'd like to create
+# Pod object is used to run a container
+kind: Pod
+metadata:
+  name: client-pod
+  labels:
+    component: web
+spec:
+  containers:
+    - name: client
+      image: sitvanit/multi-worker
+      ports:
+        # The port we'd like to expose. It's not enough, we should define as service for the full port mapping.
+        - containerPort: 9999
+
+# kubectl apply -f client-node-port.yaml
+# kubectl describe pod client-pod
