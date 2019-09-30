@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-deployment
+spec:
+  # The number of pods od multi-client
+  replicas: 3
+  # the component of our application is web
+  selector:
+    matchLabels:
+      component: web
+  # pod template
+  template:
+    metadata:
+      # The selector and the labels is how the deployment is going to identified its pods
+      labels:
+        component: web
+    spec:
+      containers:
+        - name: client
+          image: sitvanit/multi-client
+          ports:
+            - containerPort: 3000
+
