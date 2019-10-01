@@ -1,0 +1,36 @@
+apiVersion: skaffold/v1beta2
+kind: Config
+build:
+  # by default skaffold do push to hubs, but we just want to test it locally
+  local:
+    push: false
+  artifacts:
+    - image: sitvanit/multi-client
+      context: client
+      docker:
+        dockerfile: Dockerfile.dev
+      # here are all of the files that we'd like to be in mode 2, all of the others will be in mode 1
+      sync:
+        '**/*.js': .
+        '**/*.css': .
+        '**/*.html': .
+    - image: sitvanit/multi-server
+      context: server
+      docker:
+        dockerfile: Dockerfile.dev
+      sync:
+        '**/*.js': .
+    - image: sitvanit/multi-worker
+      context: worker
+      docker:
+        dockerfile: Dockerfile.dev
+      sync:
+        '**/*.js': .
+deploy:
+  kubectl:
+    manifests:
+      - k8s/client-deployment.yaml
+      - k8s/server-deployment.yaml
+      - k8s/worker-deployment.yaml
+      - k8s/client-cluster-ip-service.yaml
+      - k8s/server-cluster-ip-service.yaml

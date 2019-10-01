@@ -1,0 +1,14 @@
+# apiVersion is a bucket of different object types that we can pull from
+apiVersion: certmanager.k8s.io/v1alpha1
+# Define where to go in order to get a certificate
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-prod
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: 'sitvanit@gmail.com'
+    privateKeySecretRef:
+      name: letsencrypt-prod
+    http01: {}
+

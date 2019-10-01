@@ -1,0 +1,42 @@
+# sudo because we are going to use docker
+sudo: required
+services:
+  - docker
+env:
+  global:
+    # Put the SHA of the commit in a global env var in order to tag the images
+    - SHA=$(git rev-parse HEAD)
+    # config gcloud to not show prompts that required user input
+    - CLOUDSDK_CORE_DISABLE_PROMPTS=1
+before_install:
+  # Take the encrypted service-account.json and decrypt it and places it in the root directory
+  - openssl aes-256-cbc -K $encrypted_0c35eebf403c_key -iv $encrypted_0c35eebf403c_iv -in service-account.json.enc -out service-account.json -d
+  # Install Google Cloud SDK CLI - SDK to communicate Google Cloud
+  - curl https://sdk.cloud.google.com | bash > /dev/null;
+  - source $HOME/google-cloud-sdk/path.bash.inc
+  # Install kubectl in travis
+  - gcloud components update kubectl
+  # service account is like IAM user in AWS for travis (permissions for travis to access google cloud)
+  - gcloud auth activate-service-account --key-file service-account.json
+  # Configure the SDK with our Google Cloud auth info
+  - gcloud config set project multi-k8-254514
+  # Specify location of kubernetes engine
+  - gcloud config set compute/zone us-central1-a
+  # Add the name of the cluster
+  - gcloud container clusters get-credentials multi-cluster
+  # Login to Docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  # Build the 'test' version of multi-client
+  - docker build -t sitvanit/react-test -f ./client/Dockerfile.dev ./client
+
+# Run tests
+script:
+  - docker run -e CI=true sitvanit/react-test npm run test
+
+# If tests are successful, run a script to deploy newest images
+# We should write our own deploy script because there is no for kubernetes (as we had for beanstalk)
+deploy:
+  provider: script
+  script: bash ./deploy.sh
+  on:
+    branch: master

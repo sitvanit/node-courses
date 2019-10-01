@@ -19,3 +19,5 @@ spec:
             backend:
               serviceName: server-cluster-ip-service
               servicePort: 5000
+
+# In order to move to https there are changes that must be done in this file - they are in shelf
