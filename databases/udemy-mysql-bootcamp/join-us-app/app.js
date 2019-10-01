@@ -1,5 +1,13 @@
-const faker = require('faker');
+const express = require('express');
 const mysql = require('mysql');
+const bodyParser = require('body-parser');
+
+const app = express();
+const PORT = 3000;
+
+app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({ extended: true })); // add the body as a property on the request
+app.use(express.static(__dirname + '/public')); // connect the css to the views
 
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -8,26 +16,26 @@ const connection = mysql.createConnection({
     database: 'join_us'
 });
 
-// const q = 'SELECT COUNT(*) AS total FROM users';
-//
-// connection.query(q, (error, results, fields) => {
-//     if (error) throw error;
-//     console.log(results[0].total);
-// });
-
-const persons = [];
-for (let i = 0; i < 500; i++) {
-    persons.push([
-        faker.internet.email(),
-        faker.date.past()
-    ]);
-}
-
-const q = 'INSERT INTO users (email, created_at) VALUES ?';
-
-connection.query(q, [persons], (error, results) => {
-    if (error) throw error;
-    console.log(results);
+app.get('/', (req, res) => {
+    const query = 'SELECT COUNT(*) AS count FROM users';
+    connection.query(query, (err, results) => {
+        if (err) throw err;
+        const { count } = results[0];
+        res.render('home', { count }); // instead of res.send - look for a view in directory
+    });
 });
 
-connection.end();
+app.post('/register', (req, res) => {
+    const { email } = req.body;
+    const person = { email };
+    const query = 'INSERT INTO users SET ?';
+
+    connection.query(query, person, (err, result) => {
+        if (err) throw err;
+        res.redirect('/');
+    });
+});
+
+app.listen(PORT, () => {
+    console.log(`App is listening on port ${PORT}`);
+});

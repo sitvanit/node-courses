@@ -1,0 +1,21 @@
+Triggers are SQL statements that are automatically run when a specific tables is changed
+CREATE TRIGGER trigger_name
+  trigger_time trigger_event ON table_name FOR EACH ROW
+  BEGIN
+  ...
+  END;
+
+trigger_time: BEFORE/AFTER
+trigger_event: INSERT/UPDATE/DELETE
+
+
+Listing triggers
+SHOW TRIGGERS;
+
+Removing trigger
+DROP TRIGGER trigger_name;
+
+
+Triggers can make debugging hard!
+
+
