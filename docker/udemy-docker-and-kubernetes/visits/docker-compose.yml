@@ -11,7 +11,7 @@ services:
     ports:
       # - in a yaml file means an element of an array
       # "<local machine port>:<container port>"
-      - "4001:8081"
+      - "8000:8081"
 
 # docker-compose up
 # docker-compose up --build

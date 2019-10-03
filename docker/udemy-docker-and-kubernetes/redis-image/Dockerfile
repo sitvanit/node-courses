@@ -1,8 +1,8 @@
 # Use an existing docker image as a base
 FROM alpine
-# We use alpine as a base image? because it comes with preinstalled set of useful programs
+# We use alpine as a base image because it comes with preinstalled set of useful programs
 # for install and run an image.
-# alpine as sum linux programs and apk (package manager)
+# alpine has some linux programs and apk (package manager)
 
 # Download and install dependency
 RUN apk add --update gcc
@@ -16,7 +16,7 @@ CMD ["redis-server"]
 
 # docker build .
 # build     takes a Dockerfile and generates an image out of it.
-# .         the build context, the set of files of folders that belongs to our project and we like to wrap in the container.
+# .         the directory where it needs to search for the Dockerfile. the build context, the set of files of folders that belongs to our project and we like to wrap in the container.
 
 # Sending build context to Docker daemon  2.048kB
 
@@ -37,7 +37,6 @@ CMD ["redis-server"]
 # Removing intermediate container e91205192e95
 # ---> fe3454c59e6a
 # Successfully built fe3454c59e6a (the end result of the build is a final image - not a container)
-
 
 # we can also run the build of the image with a tag (tag convention <my_docker_id>/<repo_or_project_name>:<version>
 # we don't have to use the version in the run, the default is latest
