@@ -1,0 +1,26 @@
+What is React?
+React is a JavaScript library for building user interfaces.
+User interfaces is what the user sees.
+React is all about components.
+React components can be thought of writing HTML elements.
+
+Why React?
+UI state becomes difficult to handle with Vanilla JavaScript.
+It slows us to focus on business logic, and not preventing your app from exploding.
+It's written by a big community, and the framework creators probably wrote better code.
+Therefore it's highly efficient and fast.
+Huge ecosystem, active community, high performance.
+
+React Alternatives
+Angular
+Vue
+JQuery is not an alternative, it's just trversing the DOM.
+
+There are two kinds of applications we can build:
+* Single Page Applications - Only one HTML page, content is rendered on client - more popular today, because you don't need to go to the server in order to reload the page.
+  All of he page built with react components.
+  Typically only one ReactDOM.render() call.
+* Multi Page Applications - Multiple HTML pages, content is rendered on server (each page has a different url).
+  There are react components but not all is managed by react.
+  Typically ReactDOM.render() call per widget.
+
