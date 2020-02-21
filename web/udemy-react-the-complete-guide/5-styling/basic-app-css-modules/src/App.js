@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
 
-import './App.css';
+// css modules
+import classes from './App.css';
 import Person from './Person/Person';
 
 // npm run eject - eject from the under the hood configuration, and give you access to the configuration files.
+// afterwards 2 directories will be created in the project - config and scripts
+// in order to use css modules we should add to config/webpack.config 2 lines in the options of css loader (dev lines 167-168, prod lines 186-187)
 class App extends Component {
     state = {
         persons: [
@@ -39,6 +42,8 @@ class App extends Component {
 
     render() {
         let persons = null;
+        let buttonClass;
+        // const buttonClass = [classes.Button];
 
         if (this.state.showPersons) {
             persons = (
@@ -53,23 +58,24 @@ class App extends Component {
                 </div>
             );
 
-
+            buttonClass = classes.Red;
+            // buttonClass.push(classes.Red);
         }
 
         // Dynamic style
-        const classes = [];
+        const assignedClasses = [];
         if (this.state.persons.length <= 2) {
-            classes.push('red');
+            assignedClasses.push(classes.red);
         }
         if (this.state.persons.length <= 1) {
-            classes.push('bold');
+            assignedClasses.push(classes.bold);
         }
 
         return (
-            <div className="App">
+            <div className={classes.App}>
                 <h1>Hi, I'm a React App!</h1>
-                <p className={classes.join(' ')}>This is really working</p>
-                <button className="button" onClick={this.togglePersonsHandler}>
+                <p className={assignedClasses.join(' ')}>This is really working</p>
+                <button className={buttonClass} onClick={this.togglePersonsHandler}>
                     Toggle Persons
                 </button>
                 {persons}
