@@ -7,7 +7,7 @@ import './Person.css';
 const person = props => {
     // In order to use this JSX we have to import React
     // if it was a class we should have use it as this.props.name
-    // The children is any elements between the opening and closing tags of the component
+    // The children is any elements between the opening and closing tags of the component (from the App)
     // A component without a state is a stateless component, we call it also dump or presentational component
     // It's a good practice to create as many of stateless components.
     return (

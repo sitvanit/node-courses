@@ -56,13 +56,13 @@ class App extends Component {
             // JSX allow us to write HTML code in JS files (the X is for XML).
             // All the elements that we are using (as div..) are provided by the React library, they are not the real HTML tags, React is converting them behind the scenes.
             // But we have some restrictions:
-            // 1. Usually we use class instead of className, but class can't be use because it's a reserved word in JS - className is rendered to ba class.
+            // 1. Usually we use class instead of className, but class can't be use because it's a reserved word in JS - className is rendered to be class.
             // 2. Our JSX expression must have one root element. It's a best practice to wrap everything in one root element.
             <div className="App">
                 <h1>Hi, I'm a React App!</h1>
                 <p>This is really working</p>
                 <button style={style} onClick={() => this.switchNameHandler('Maximilian')}>Switch Name</button>
-                <Person name={this.state.persons[0].name} click={this.switchNameHandler.bind(this, 'Max!!!')}/>
+                <Person name={this.state.persons[0].name} click={() => this.switchNameHandler('Max!!!')}/>
                 <Person name={this.state.persons[1].name} changed={this.nameChangedHandler}>My Hobbies: Tennis</Person>
                 <Person name="Stephanie"/>
             </div>
