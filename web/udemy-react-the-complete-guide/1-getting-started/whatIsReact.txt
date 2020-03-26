@@ -1,6 +1,5 @@
 What is React?
-React is a JavaScript library for building user interfaces.
-User interfaces is what the user sees.
+React is a JavaScript library for building user interfaces (User interfaces is what the user sees).
 React is all about components.
 React components can be thought of writing HTML elements.
 
@@ -14,7 +13,7 @@ Huge ecosystem, active community, high performance.
 React Alternatives
 Angular
 Vue
-JQuery is not an alternative, it's just trversing the DOM.
+JQuery is not an alternative, it's just traversing the DOM.
 
 There are two kinds of applications we can build:
 * Single Page Applications - Only one HTML page, content is rendered on client - more popular today, because you don't need to go to the server in order to reload the page.
