@@ -5,14 +5,38 @@ import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit'
 
 class App extends Component {
-    state = {
-        persons: [
-            {id: 1, name: 'Max', age: 25},
-            {id: 2, name: 'Manu', age: 26},
-            {id: 3, name: 'Sitvanit', age: 27}
-        ],
-        showPersons: false
-    };
+    constructor(props) {
+        super(props);
+        console.log('[App.js] constructor');
+
+        this.state = {
+            persons: [
+                {id: 1, name: 'Max', age: 25},
+                {id: 2, name: 'Manu', age: 26},
+                {id: 3, name: 'Sitvanit', age: 27}
+            ],
+            showPersons: false
+        };
+    }
+
+    static getDerivedStateFromProps(props, state) {
+        console.log('[App.js] getDerivedStateFromProps', props);
+        return state;
+    }
+
+    componentDidMount() {
+        console.log('[App.js] componentDidMount');
+    }
+
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        console.log('[App.js] shouldComponentUpdate');
+        return true;
+    }
+
+    // The most common use function - when the update fiish and we need to fetch data from the server.
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log('[App.js] componentDidUpdate');
+    }
 
     nameChangedHandler = (event, id) => {
         const personIndex = this.state.persons.findIndex(person => person.id === id);
@@ -38,6 +62,7 @@ class App extends Component {
     };
 
     render() {
+        console.log('[app.js] render');
         let persons = null;
 
         if (this.state.showPersons) {
@@ -52,6 +77,7 @@ class App extends Component {
         return (
             <div className={classes.App}>
                 <Cockpit
+                    title={this.props.appTitle}
                     showPersons={this.state.showPersons}
                     persons={this.state.persons}
                     clicked={this.togglePersonsHandler}
