@@ -7,6 +7,8 @@ import Person from './Person/Person';
 // npm run eject - eject from the under the hood configuration, and give you access to the configuration files.
 // afterwards 2 directories will be created in the project - config and scripts
 // in order to use css modules we should add to config/webpack.config 2 lines in the options of css loader (dev lines 167-168, prod lines 186-187)
+// modules: true, // enable css modules that we are going to use
+// localIndentName: '[name]__[local]__[hash:base64:5' // will be used by the feature to add uniques css class name in the end
 class App extends Component {
     state = {
         persons: [
