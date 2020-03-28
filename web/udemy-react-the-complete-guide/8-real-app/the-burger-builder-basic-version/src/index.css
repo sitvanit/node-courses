@@ -1,5 +1,13 @@
+/* use google font
+1. go to google and choose a font
+2. choose in CUSTOMIZE the fonts you want
+3. go to EMBED and copy the link href
+4. paste the link in public/index.html
+5. and use it in the css file
+ */
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
