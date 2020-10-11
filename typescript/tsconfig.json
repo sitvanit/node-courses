@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "target": "es2015",
+        "outDir": "dist",
+        "allowJs": true,
+        "checkJs": true,
+        "lib": ["WebWorker", "DOM", "ES2015"]
+    }
+}
